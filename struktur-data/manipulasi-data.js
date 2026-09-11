@@ -40,3 +40,4 @@ arrayShift.shift();
 console.log(arrayShift);
 
 
+const arrayBiasa = new Array("maulana","fadel","irsyad","dihyah" (name) => {return "hello" = name});  
