@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <main class="main">
+  <section class="seksi-filter">
+    <h2 class="seksi-judul">Koleksi Buku</h2>
+    
+    <!-- Tambahan Kotak Search -->
+    <div class="kotak-search">
+      <input 
+        type="text" 
+        id="input-search" 
+        class="input-search" 
+        placeholder="Cari judul atau penulis..." 
+        autocomplete="off"
+      >
+      <button id="tombol-hapus-search" class="tombol-hapus-search" style="display:none">×</button>
+    </div>
+
+    <div id="tombol-filter" class="grup-filter">
+      <!-- Tombol filter akan dirender JavaScript -->
+    </div>
+    <p id="info-jumlah" class="info-jumlah"></p>
+  </section>
+  <section class="seksi-buku">
+    <div id="kontainer-buku" class="grid-buku">
+      <!-- Kartu buku akan dirender JavaScript -->
+    </div>
+  </section>
+</main>
+</body>
+<script src="app.js"></script>
+</html>

@@ -1,0 +1,231 @@
+/* --- Base & Reset --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: #f8fafc;
+  color: #334155;
+  padding: 2rem 1rem;
+}
+
+/* --- Layout Utama --- */
+.main {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+.seksi-judul {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+/* --- Filter buttons --- */
+.grup-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.tombol-filter {
+  padding: 8px 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 99px;
+  background: white;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tombol-filter:hover {
+  border-color: #3b82f6;
+  color: #3b82f6;
+  background: #eff6ff;
+  transform: translateY(-1px);
+}
+
+.tombol-filter.aktif {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: white;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* --- Info jumlah --- */
+.info-jumlah {
+  font-size: 14px;
+  color: #94a3b8;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+/* --- Grid buku --- */
+.grid-buku {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* --- Kartu buku --- */
+.kartu-buku {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+  border: 1px solid #e2e8f0;
+  border-left: 6px solid #3b82f6;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.kartu-buku:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px -4px rgba(0,0,0,0.1);
+  border-left-color: #2563eb;
+}
+
+.kartu-judul-buku {
+  font-size: 19px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.kartu-penulis-buku {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.kartu-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: auto;
+}
+
+/* --- Badges --- */
+.badge-kategori,
+.badge-stok-tersedia,
+.badge-stok-habis {
+  padding: 6px 14px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.badge-kategori {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.badge-stok-tersedia {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.badge-stok-habis {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* --- Rating --- */
+.kartu-rating {
+  font-size: 14px;
+  color: #f59e0b;
+  font-weight: 700;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #fffbeb;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.kartu-rating::before {
+  content: "★";
+  font-size: 16px;
+}
+
+/* --- Pesan kosong --- */
+.pesan-kosong {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 80px 20px;
+  color: #94a3b8;
+  background: #f8fafc;
+  border-radius: 16px;
+  border: 2px dashed #cbd5e1;
+}
+
+.pesan-kosong-ikon {
+  font-size: 64px;
+  display: block;
+  margin-bottom: 16px;
+  opacity: 0.8;
+  filter: grayscale(0.2);
+}
+
+/* --- TAMBAHAN SEARCH BOX (Dari update MD) --- */
+.kotak-search {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.input-search {
+  width: 100%;
+  padding: 10px 40px 10px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #1e293b;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-search:focus {
+  border-color: #2563eb;
+}
+
+.tombol-hapus-search {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.tombol-hapus-search:hover {
+  color: #475569;
+}
+
+/* Highlight keyword di judul */
+.highlight {
+  background-color: #fef08a;
+  border-radius: 2px;
+  padding: 0 1px;
+}
