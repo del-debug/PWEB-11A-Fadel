@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .btn{
+        background-color: blue;
+        border-radius: 20px;
+        padding: 5px;
+        margin: 10px;
+    }
+
+    .judulBerubah{
+        color: aqua;
+    }
+
+    .gambar{
+        width: 100px;
+        height: 100px;
+    }
+
+    .btn-gambar{
+        background-color: red;
+        border-radius: 20px;
+        padding: 5px;
+        margin: 10px;
+    }
+
+</style>
+<body>
+    <button class="btn">
+        klik saya
+    </button>
+
+    <button class="btn-gambar" id="btn-gambar">klik gambar</button>
+    <img class="gambar" src="./pov ur squidward working at krusty krab.png" alt="">
+
+    <h1 id="judul">belum di klik</h1>
+</body>
+<script>
+    const btn = document.querySelector(".btn");
+    const judul = document.querySelector("#judul");
+    const btnGambar = document.querySelector("#btn-gambar");
+    const gambar = document.querySelector(".gambar");
+
+    btn.addEventListener("click",function (){
+        judul.textContent = "tombol berhasil diklik";
+        
+
+        judul.className = "judulBerubah"
+        //cara mmebuat ketika tombol di klik dan bertambah dengan..
+
+    })
+
+    btnGambar.addEventListener("click", function() {
+        gambar.src = "./images (2).png";
+    })
+</script>
+</html>

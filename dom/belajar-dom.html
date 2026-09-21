@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<h1 id="judul">apa itu dom?</h1>
+<!--DOM adalah singkatan dari Document Object Model. Itu adalah antarmuka pemrograman untuk dokumen HTML dan XML.-->
+<p id="artinya"></p>
+
+<p class="sub-arti"></p>
+<body>
+    
+</body>
+<script>
+    document.getElementById("judul").innerHTML = "DOM adalah singkatan dari Document Object Model. Itu adalah antarmuka pemrograman untuk dokumen HTML dan XML.";
+
+    const artinya = document.getElementById('artinya');
+    artinya.textContent = "DOM adalah singkatan dari Document Object Model. Itu adalah antarmuka pemrograman untuk dokumen HTML dan XML."
+
+    //pakai querySelector
+    const artinyaP = document.querySelector('.artinya')
+    //atau
+    const subArti = document.querySelector('#artinya');
+
+    //pakai classByName
+    const subArtiElements = document.getElementsByClassName('sub-arti');
+    artinya.textContent = "Contoh penggunaan getElementsByClassName";
+
+</script>
+</html>
