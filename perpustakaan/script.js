@@ -60,15 +60,30 @@ function hitungStatistik(koleksi) {
   return { total, tersedia, habis, rataRating };
 }
 
-// Logika Interaksi Favorit
-function toggleFavorit(id) {
-  state.buku = state.buku.map(b => b.id === id ? { ...b, favorit: !b.favorit } : b);
-  reRender();
+// Logika Interaksi Favorit (TANPA REFRESH SEMUA BUKU)
+function toggleFavorit(id, elemenTombol) {
+  const buku = state.buku.find(b => b.id === id);
+  if (!buku) return;
+  buku.favorit = !buku.favorit;
+
+  const kartu = elemenTombol.closest(".kartu-buku");
+  if (buku.favorit) {
+    elemenTombol.classList.add("aktif");
+    elemenTombol.textContent = "❤️";
+    kartu.classList.add("favorit");
+  } else {
+    elemenTombol.classList.remove("aktif");
+    elemenTombol.textContent = "🤍";
+    kartu.classList.remove("favorit");
+  }
+  
+  // Hanya render ulang statistik untuk update jumlah favorit
+  renderStatistik();
 }
 
 function hapusSemuaFavorit() {
   state.buku = state.buku.map(b => ({ ...b, favorit: false }));
-  reRender();
+  reRender(); // Ini perlu render semua karena banyak yang berubah
 }
 
 //
@@ -97,7 +112,7 @@ function renderStatistik() {
   if (jumlahFavorit > 0) {
     kontainer.innerHTML += `
       <div style="width: 100%; text-align: right; margin-top: 10px; grid-column: 1/-1;">
-        <button onclick="hapusSemuaFavorit()" style="padding: 5px 10px; cursor: pointer; color: red; background: none; border: 1px solid red; border-radius: 5px;">
+        <button onclick="hapusSemuaFavorit()" style="padding: 6px 14px; cursor: pointer; color: #EE5D50; background: #FEEDED; border: none; border-radius: 8px; font-weight: 600;">
           Hapus Semua Favorit
         </button>
       </div>
@@ -141,7 +156,7 @@ function renderDaftarBuku() {
     const kelasKartu = ["kartu-buku", tersedia ? "" : "habis", buku.favorit ? "favorit" : ""].filter(Boolean).join(" ");
     const badgeStokKelas = tersedia ? "badge-stok-tersedia" : "badge-stok-habis";
     const badgeStokTeks = tersedia ? `${buku.stok} tersisa` : "Habis";
-    const tambahanStokKritis = buku.stok === 1 ? `<span style="background-color: orange; color: white; padding: 4px 12px; border-radius: 99px; font-size: 12px; font-weight: 700;">Stok Kritis</span>` : "";
+    const tambahanStokKritis = buku.stok === 1 ? `<span style="background-color: #FFCE20; color: #2b3674; padding: 6px 14px; border-radius: 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.3px;">Stok Kritis</span>` : "";
     
     const judulTampil = highlightKeyword(buku.judul, state.keyword);
     const penulisTampil = highlightKeyword(buku.penulis, state.keyword);
@@ -189,7 +204,7 @@ function inisialisasi() {
   document.getElementById("kontainer-buku").addEventListener("click", function(event) {
     const tombol = event.target.closest(".tombol-favorit");
     if (!tombol) return;
-    toggleFavorit(Number(tombol.dataset.id));
+    toggleFavorit(Number(tombol.dataset.id), tombol);
   });
 
   // Event Pencarian (Search)
