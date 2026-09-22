@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Perpus - Perpustakaan Digital</title>
-  <link rel="stylesheet" href="/perpustakaan/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="header">
@@ -13,12 +13,28 @@
       <p class="header-subjudul">Perpustakaan Digital</p>
     </div>
   </header>
+  
   <main class="main">
+    <!-- Bagian Statistik -->
     <section class="seksi-statistik">
       <div id="ringkasan-statistik" class="grid-statistik">
         <!-- Kartu statistik dirender JavaScript -->
       </div>
     </section>
+
+    <!-- Bagian Pencarian & Filter -->
+    <section style="margin-bottom: 24px;">
+      <div class="kotak-search">
+        <input type="text" id="input-search" class="input-search" placeholder="Cari judul atau penulis...">
+        <button id="tombol-hapus-search" class="tombol-hapus-search" style="display:none;">✖</button>
+      </div>
+      <div id="tombol-filter" class="grup-filter">
+        <!-- Tombol filter dirender JavaScript -->
+      </div>
+      <div id="info-jumlah" class="info-jumlah"></div>
+    </section>
+
+    <!-- Bagian Koleksi Buku -->
     <section class="seksi-koleksi">
       <h2 class="seksi-judul">Koleksi Buku</h2>
       <div id="kontainer-buku" class="grid-buku">
@@ -26,6 +42,7 @@
       </div>
     </section>
   </main>
-  <script src="/perpustakaan/script.js"></script>
+  
+  <script src="script.js"></script>
 </body>
 </html>
