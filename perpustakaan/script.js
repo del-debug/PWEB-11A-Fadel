@@ -15,6 +15,8 @@ const KOLEKSI_BUKU = [
 //
 // FUNGSI KALKULASI STATISTIK
 //
+// Catatan: menerima array koleksi buku, lalu menghitung jumlah total,
+// jumlah buku yang tersedia, jumlah buku yang habis, dan rata-rata rating.
 function hitungStatistik(koleksi) {
   const total = koleksi.length;
   const tersedia = koleksi.filter(b => b.stok > 0).length;
@@ -26,6 +28,8 @@ function hitungStatistik(koleksi) {
 //
 // FUNGSI RENDER
 //
+// Catatan: menerima data satu kartu statistik dan mengembalikan HTML
+// untuk menampilkan angka, label, serta warna kartu tersebut.
 function renderKartuStatistik({ angka, label, warna }) {
   return `
     <div class="kartu-statistik statistik-${warna}">
@@ -35,6 +39,8 @@ function renderKartuStatistik({ angka, label, warna }) {
   `;
 }
 
+// Catatan: menghitung statistik koleksi, menyiapkan data setiap kartu,
+// lalu memasukkan seluruh kartu statistik ke elemen HTML tujuan.
 function renderStatistik(koleksi) {
   const { total, tersedia, habis, rataRating } = hitungStatistik(koleksi);
   const kartuData = [
@@ -48,6 +54,8 @@ function renderStatistik(koleksi) {
   kontainer.innerHTML = kartuData.map(renderKartuStatistik).join("");
 }
 
+// Catatan: menerima satu data buku dan mengubahnya menjadi HTML kartu.
+// Fungsi ini juga menentukan status stok, kelas CSS, dan tampilan rating.
 function renderKartuBuku(buku) {
   const { judul, penulis, kategori, stok, rating } = buku;
   const tersedia = stok > 0;
@@ -69,6 +77,8 @@ function renderKartuBuku(buku) {
   `;
 }
 
+// Catatan: menampilkan semua buku ke halaman. Jika koleksi kosong,
+// fungsi ini menampilkan pesan bahwa tidak ada buku untuk ditampilkan.
 function renderDaftarBuku(koleksi) {
   const kontainer = document.getElementById("kontainer-buku");
   if (koleksi.length === 0) {
@@ -86,6 +96,8 @@ function renderDaftarBuku(koleksi) {
 //
 // INISIALISASI
 //
+// Catatan: menjalankan proses awal aplikasi dengan merender statistik
+// dan daftar buku, kemudian mencatat jumlah buku yang berhasil dimuat.
 function inisialisasi() {
   renderStatistik(KOLEKSI_BUKU);
   renderDaftarBuku(KOLEKSI_BUKU);
